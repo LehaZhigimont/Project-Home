@@ -17,6 +17,7 @@ public class People {
     private int age;
     private int weight;
     private int height;
+    private String key;
 
     public People(){
         this.name = ALLNAME[(int)(1+Math.random()*40)];
@@ -24,6 +25,7 @@ public class People {
         this.age = (int)(1+Math.random()*80);
         this.weight = (int)(25+Math.random()*100);
         this.height = (int)(120+Math.random()*80);
+        this.key = null;
     }
 
 
@@ -35,27 +37,27 @@ public class People {
     public String toString(String age){
         if(age.contains("child")){
             if(getSex()=='M'){
-                System.out.println("Мальчик " + getName() + ", ему " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + "  |||  Мальчик " + getName() + ", ему " + getAge() + " лет");
             }else {
-                System.out.println("Девочка " + getName() + ", ей " + getAge() + " лет,");
+                System.out.println("Key: " + getKey() + "  |||  Девочка " + getName() + ", ей " + getAge() + " лет,");
             }
         }else if(age.contains("junior")){
             if(getSex()=='M'){
-                System.out.println("Юноша " + getName() + ", ему " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + " |||  Юноша " + getName() + ", ему " + getAge() + " лет");
             }else {
-                System.out.println("Девушка " + getName() + ", ей " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + " |||  Девушка " + getName() + ", ей " + getAge() + " лет");
             }
         }else if(age.contains("adult")) {
             if (getSex() == 'M') {
-                System.out.println("Мужчина " + getName() + ", ему " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + "  |||  Мужчина " + getName() + ", ему " + getAge() + " лет");
             } else {
-                System.out.println("Женщина " + getName() + ", ей " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + "  |||  Женщина " + getName() + ", ей " + getAge() + " лет");
             }
         }else if(age.contains("old")) {
             if (getSex() == 'M') {
-                System.out.println("Дедушка " + getName() + ", ему " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + "    |||  Дедушка " + getName() + ", ему " + getAge() + " лет");
             } else {
-                System.out.println("Бабушка " + getName() + ", ей " + getAge() + " лет");
+                System.out.println("Key: " + getKey() + "    |||  Бабушка " + getName() + ", ей " + getAge() + " лет");
             }
         }
         return "";
@@ -101,6 +103,14 @@ public class People {
         return " ";
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public String getName() {
         return name;
     }
@@ -120,12 +130,6 @@ public class People {
     public int getWeight() {
         return weight;
     }
-
-
-
-
-
-
     /*
     По имени определяет пол человека
      */
