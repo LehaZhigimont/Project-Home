@@ -52,7 +52,14 @@ public class ManySet{
                     SortAge.put(old, o);
                     o.toString(old);
             }
+            NoteKey(o);
         }
+        int i=0;
+        for(People o : Child){
+            i++;
+            System.out.print(o.toString(o.getKey()));
+        }
+        System.out.println("Всего " + i + " детей");
     }
     /*
     Этот метод генерирует уникальные ключи для разного возраста,
