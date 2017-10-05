@@ -6,21 +6,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InputStream {
-    // private java.io.InputStream inp = Check.class.getResourceAsStream("Streams/resources/1.txt");
-    private File file = new File("./1.txt");
+    private final File DEFOULTFILE = new File("c:/test.txt");
+    private static File file = null;
     private int letter=0;
     private String Messeg = "";
     private FileInputStream fis = null;
     private InputStreamReader isr = null;
 
-    public void Input(){
+    public void Input(int indexFile){
         try {
-            fis = new FileInputStream(file);
+            if(indexFile==0){
+                fis = new FileInputStream(DEFOULTFILE);
+            }else if (indexFile==1){
+                fis = new FileInputStream(file);
+            }
             isr = new InputStreamReader(fis);
             while((letter=isr.read())!=-1){
                 Messeg = Messeg + (char)letter;
             }
             System.out.println(Messeg);
+            Messeg = "";
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
